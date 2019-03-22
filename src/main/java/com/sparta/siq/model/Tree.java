@@ -16,15 +16,15 @@ public class Tree implements BinaryTree {
     @Override
     public int getNumberOfElements() {
         return 0;
+
     }
 
     @Override
     public void addElement(int element) {
 
-        if(root == null)
-        {
+        if (root == null) {
             root = new Node(element);
-        }else {
+        } else {
             insertNode(root, element);
         }
         /*
@@ -64,22 +64,43 @@ public class Tree implements BinaryTree {
 
     @Override
     public void addElements(int[] elements) {
-
+        for (int i = 0; i < elements.length; i++) {
+            if (root == null) {
+                root = new Node(elements[0]);
+            } else {
+                insertNode(root, elements[i]);
+            }
+        }
     }
 
     @Override
     public boolean findElement(int value) {
-        return false;
+//        if (root.getValue() == value) {
+//            return true;
+//        } else if (root.getLeftChild().getValue() == value) {
+//            return true;
+//        } else if (root.getRightChild().getValue() == value) {
+//            return true;
+//        } else {
+//            return false;
+//        }
+        if (findNode(root, value))
+        {
+            return true;
+        }
+return false;
     }
+
 
     @Override
     public int getLeftChild(int element) {
-        return 0;
+
+        return root.getLeftChild().getValue();
     }
 
     @Override
     public int getRightChild(int element) {
-        return 0;
+        return root.getRightChild().getValue();
     }
 
     @Override
@@ -108,4 +129,40 @@ public class Tree implements BinaryTree {
             }
         }
     }
+
+    public boolean findNode(Node node, int element) {
+
+        if(node == null){return false;}
+        if(element == node.getValue())
+        {
+            return true;
+        }
+        else if(element < node.getValue())
+        {
+            if(node.getLeftChild().getValue() != element || node.getLeftChild() == null)
+            {
+                findNode(node.getLeftChild(), element);
+            }
+            else {
+                return true;
+            }
+        }
+        else if(element > node.getValue())
+        {
+            if (node.getRightChild().getValue() == element||node.getRightChild() == null)
+            {
+                findNode(node.getRightChild(),element);
+            }
+            else
+            {
+                return true;
+
+            }
+
+        }
+return false;
+    }
 }
+
+
+

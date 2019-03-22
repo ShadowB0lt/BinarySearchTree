@@ -10,13 +10,13 @@ public class Starter
 
     public static void main( String[] args )
     {
+        int[] numbersInArray = {12,4,5,3};
         BinaryTree tree = new Tree();
         tree.addElement(10);
-        tree.addElement(7);
-        tree.addElement(5);
-        tree.addElement(6);
-        tree.addElement(3);
-        tree.addElement(8);
-        System.out.println(tree.getRootElement());
+        tree.addElements(numbersInArray);
+        System.out.println(tree.findElement(23));
+
+        //System.out.println(tree.getRootElement());
+
     }
 }
