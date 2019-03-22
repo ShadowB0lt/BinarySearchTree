@@ -58,7 +58,6 @@ public class Tree implements BinaryTree {
                     root.getRightChild().setRightChild(newNode);
                 }
             }
-
         }
         */
     }
@@ -93,28 +92,18 @@ public class Tree implements BinaryTree {
         return null;
     }
 
-    public void insertNode(Node node,int element)
-    {
+    public void insertNode(Node node, int element) {
 
-        if(element<node.getValue())
-        {
-            if(node.getLeftChild()!= null)
-            {
-                insertNode(node.getLeftChild(),element);
-            }
-            else
-            {
+        if (element < node.getValue()) {
+            if (node.getLeftChild() != null) {
+                insertNode(node.getLeftChild(), element);
+            } else {
                 node.setLeftChild(new Node(element));
             }
-        }
-        else if (element > node.getValue())
-        {
-            if(node.getRightChild()!=null)
-            {
-                insertNode(node.getRightChild(),element);
-            }
-            else
-            {
+        } else if (element > node.getValue()) {
+            if (node.getRightChild() != null) {
+                insertNode(node.getRightChild(), element);
+            } else {
                 node.setRightChild(new Node(element));
             }
         }
