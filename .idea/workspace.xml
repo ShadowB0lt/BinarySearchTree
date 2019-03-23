@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3fb51129-100b-487a-a1f8-71cf09bb806b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sparta/siq/View/BinaryTreeDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sparta/siq/View/BinaryTreeDisplay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sparta/siq/model/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sparta/siq/model/Tree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sparta/siq/starter/Starter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sparta/siq/starter/Starter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/sparta/siq/model/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sparta/siq/model/Node.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/sparta/siq/model/Tree.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sparta/siq/model/Tree.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/sparta/siq/starter/Starter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sparta/siq/starter/Starter.class" afterDir="false" />
@@ -46,8 +43,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sparta/siq/model/Tree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="145" column="18" lean-forward="true" selection-start-line="145" selection-start-column="18" selection-end-line="145" selection-end-column="18" />
+            <state relative-caret-position="142">
+              <caret line="132" column="4" selection-start-line="132" selection-start-column="4" selection-end-line="132" selection-end-column="4" />
               <folding>
                 <element signature="e#170#171#0" expanded="true" />
                 <element signature="e#208#209#0" expanded="true" />
@@ -217,7 +214,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553299038116" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553299088019" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -290,6 +287,14 @@
       <option name="presentableId" value="Default" />
       <updated>1553013901811</updated>
     </task>
+    <task id="LOCAL-00001" summary="Find Node method almost complete">
+      <created>1553299094875</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1553299094875</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -299,7 +304,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25973153" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -318,7 +322,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3286119" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" sideWeight="0.4978903" weight="0.24966443" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -331,7 +335,8 @@
     </layout>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="Find Node method almost complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="Find Node method almost complete" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -404,8 +409,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sparta/siq/model/Tree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="145" column="18" lean-forward="true" selection-start-line="145" selection-start-column="18" selection-end-line="145" selection-end-column="18" />
+        <state relative-caret-position="142">
+          <caret line="132" column="4" selection-start-line="132" selection-start-column="4" selection-end-line="132" selection-end-column="4" />
           <folding>
             <element signature="e#170#171#0" expanded="true" />
             <element signature="e#208#209#0" expanded="true" />
