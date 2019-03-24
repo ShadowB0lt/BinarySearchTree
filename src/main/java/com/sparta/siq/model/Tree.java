@@ -1,11 +1,17 @@
 package com.sparta.siq.model;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Tree implements BinaryTree {
 
     private Node root;
+    private boolean valueFound = false;
+    private int LeftValue = 0;
+    private int rightValue = 0;
+    private int numberOfElements = 0;
+    private List<Integer> list = new ArrayList<>();
 
 
     @Override
@@ -15,7 +21,12 @@ public class Tree implements BinaryTree {
 
     @Override
     public int getNumberOfElements() {
-        return 0;
+
+        if (root != null) {
+            return getNumberOfNodes(root);
+        } else {
+            return 0;
+        }
 
     }
 
@@ -27,39 +38,6 @@ public class Tree implements BinaryTree {
         } else {
             insertNode(root, element);
         }
-        /*
-        if(root == null) {
-            root = new Node(element);
-        } else {
-            Node newNode = new Node(element);
-            if (element < root.getValue()) {
-
-                if (root.getLeftChild() == null) {
-                    root.setLeftChild(newNode);
-
-                } else {
-                    root.getLeftChild().setLeftChild(newNode);
-                }
-                if (element < newNode.getValue() && newNode.getLeftChild() == null) {
-                    newNode.getLeftChild().setLeftChild(newNode);
-
-                } else if (root.getLeftChild() != null || newNode.getLeftChild() != null) {
-//                    if(){
-
-//                    }else {
-
-//                    }
-                    //addElement(root.getLeftChild().getValue());
-                }
-            } else if (element > root.getValue() || element > newNode.getValue()) {
-                if (root.getRightChild() == null) {
-                    root.setRightChild(newNode);
-                } else if (root.getRightChild() != null || newNode.getRightChild() != null) {
-                    root.getRightChild().setRightChild(newNode);
-                }
-            }
-        }
-        */
     }
 
     @Override
@@ -75,45 +53,41 @@ public class Tree implements BinaryTree {
 
     @Override
     public boolean findElement(int value) {
-//        if (root.getValue() == value) {
-//            return true;
-//        } else if (root.getLeftChild().getValue() == value) {
-//            return true;
-//        } else if (root.getRightChild().getValue() == value) {
-//            return true;
-//        } else {
-//            return false;
-//        }
-        if (findNode(root, value))
-        {
-            return true;
+
+        if (root.getValue() == value) {
+            valueFound = true;
+        } else {
+            findNode(root, value);
         }
-return false;
+        return valueFound;
     }
 
 
     @Override
     public int getLeftChild(int element) {
-
-        return root.getLeftChild().getValue();
+        return getLeft(root, element);
     }
 
     @Override
     public int getRightChild(int element) {
-        return root.getRightChild().getValue();
+        return getRight(root, element);
     }
 
     @Override
     public List<Integer> getSortedTreeAsc() {
-        return null;
+        list.clear();
+        getLeastToRight(root);
+        return list;
     }
 
     @Override
     public List<Integer> getSortedTreeDesc() {
-        return null;
+        list.clear();
+        getHighestToLeast(root);
+        return list;
     }
 
-    public void insertNode(Node node, int element) {
+    private void insertNode(Node node, int element) {
 
         if (element < node.getValue()) {
             if (node.getLeftChild() != null) {
@@ -130,38 +104,86 @@ return false;
         }
     }
 
-    public boolean findNode(Node node, int element) {
+    private boolean findNode(Node node, int element) {
 
-        if(node == null){return false;}
-        if(element == node.getValue())
-        {
-            return true;
-        }
-        else if(element < node.getValue())
-        {
-            if(node.getLeftChild().getValue() != element || node.getLeftChild() == null)
-            {
-                findNode(node.getLeftChild(), element);
-            }
-            else {
-                return true;
-            }
-        }
-        else if(element > node.getValue())
-        {
-            if (node.getRightChild().getValue() == element||node.getRightChild() == null)
-            {
-                findNode(node.getRightChild(),element);
-            }
-            else
-            {
-                return true;
+        if (node != null && node.getValue() < element) {
 
-            }
-
+            findNode(node.getRightChild(), element);
+        } else if (node != null && node.getValue() > element) {
+            findNode(node.getLeftChild(), element);
+        } else if (node != null && node.getValue() == element) {
+            valueFound = true;
         }
-return false;
+        return valueFound;
     }
+
+    private int getLeft(Node node, int element) {
+
+        if (node != null && node.getValue() > element) {
+            getLeft(node.getLeftChild(), element);
+        } else if (node != null && node.getValue() < element) {
+            getLeft(node.getRightChild(), element);
+        } else if (node.getLeftChild() != null) {
+            LeftValue = node.getLeftChild().getValue();
+        }
+        return LeftValue;
+    }
+
+    private int getRight(Node node, int element) {
+
+        if (node != null && node.getValue() < element) {
+            getRight(node.getRightChild(), element);
+        } else if (node != null && node.getValue() > element) {
+            getRight(node.getLeftChild(), element);
+        } else if (node.getRightChild() != null) {
+            rightValue = node.getRightChild().getValue();
+        }
+        return rightValue;
+    }
+
+    private int getNumberOfNodes(Node node) {
+
+        numberOfElements++;
+
+        if (node.getLeftChild() != null) {
+            getNumberOfNodes(node.getLeftChild());
+        }
+        if (node.getRightChild() != null) {
+            getNumberOfNodes(node.getRightChild());
+        }
+        return numberOfElements;
+    }
+
+    private List<Integer> getLeastToRight(Node node) {
+        if (node != null) {
+            if (node.getLeftChild() != null) {
+                getLeastToRight(node.getLeftChild());
+            }
+
+            list.add(node.getValue());
+
+
+            if (node.getRightChild() != null) {
+                getLeastToRight(node.getRightChild());
+            }
+        }
+        return list;
+    }
+
+    private List<Integer> getHighestToLeast(Node node) {
+        if (node != null) {
+            if (node.getRightChild() != null) {
+                getHighestToLeast(node.getRightChild());
+            }
+
+            list.add(node.getValue());
+            if (node.getLeftChild() != null) {
+                getHighestToLeast(node.getLeftChild());
+            }
+        }
+        return list;
+    }
+
 }
 
 
